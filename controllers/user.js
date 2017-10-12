@@ -1,4 +1,8 @@
 const Users = require('../models/Users');
+const jwt   = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+const salt = bcrypt.genSaltSync(10);
+require('dotenv').config()
 
 console.log('=========== masuk CONTR users');
 
@@ -19,9 +23,10 @@ class userController {
   }
 
   static add (req,res) {
+    var hash = bcrypt.hashSync(req.body.password, salt)
     Users.create({
       username:req.body.username,
-      password:req.body.password,
+      password:hash,
       email:req.body.email
     })
     .then(result=>{
@@ -43,9 +48,11 @@ class userController {
   }
 
   static update (req,res) {
+    if(req.body.password)
+    var hash = bcrypt.hashSync(req.body.password, salt)
     Users.findOneAndUpdate({_id:req.params.id},{
       username:req.body.username,
-      password:req.body.password,
+      password:hash,
       email:req.body.email
     })
     .then(result=>{
@@ -67,11 +74,40 @@ class userController {
   }
 
   static login (req,res) {
-
+    Users.findOne({username:req.body.username})
+    .then(data=>{
+      // res.send('=========== ' + data)
+      if (bcrypt.compareSync(req.body.password, data.password)) {
+        console.log(data)
+        var token = jwt.sign({
+          id       : data._id,
+          username : data.username,
+          email    : data.email
+        }, process.env.SECRET_KEY)
+        res.send({token:token,msg:'berhasil'})
+      }else{
+        res.status(401).send({
+          status:401,
+          err:{
+            msg:'password salah'
+          }
+        })
+      }
+    })
+    .catch(err=>{
+      res.send(err)
+    })
   }
 
   static verify (req,res) {
-
+    jwt.verify(req.body.token, process.env.SECRET_KEY,(err,decoded)=>{
+      if(!err){
+        res.send(decoded)
+      }
+      else{
+        console.log(err)
+      }
+    })
   }
 }
 
