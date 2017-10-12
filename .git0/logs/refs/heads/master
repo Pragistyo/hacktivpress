@@ -1,0 +1,9 @@
+0000000000000000000000000000000000000000 53f49b1bd6dd45b03701c9b8cfa0c7f6c1e00b5d Pragistyo <new.SOS.hope@outlook.com> 1507788462 +0700	clone: from git@github.com:Pragistyo/hacktivpress.git
+53f49b1bd6dd45b03701c9b8cfa0c7f6c1e00b5d 0c99c51bd0f2ffd46ffc3e8b8cc00ea27061e00f Pragistyo <new.SOS.hope@outlook.com> 1507789014 +0700	commit: initial commit README
+0c99c51bd0f2ffd46ffc3e8b8cc00ea27061e00f 9633f129c0d85a4caaa09f0e433dc858c558a727 Pragistyo <new.SOS.hope@outlook.com> 1507789226 +0700	commit: update REDME
+9633f129c0d85a4caaa09f0e433dc858c558a727 62a4eb1a4cc24489fb1161acb010e7160f53e20a Pragistyo <new.SOS.hope@outlook.com> 1507789283 +0700	commit: update README
+62a4eb1a4cc24489fb1161acb010e7160f53e20a a45233bfb0d8818c527ec6802844d3da97dd5d76 Pragistyo <new.SOS.hope@outlook.com> 1507791836 +0700	commit: baru model user
+a45233bfb0d8818c527ec6802844d3da97dd5d76 b6469d3002ea373c51795bed7a6e9f6b02ba95a1 Pragistyo <new.SOS.hope@outlook.com> 1507793406 +0700	commit: register oke
+b6469d3002ea373c51795bed7a6e9f6b02ba95a1 2aec6019ea4806191151f32e57390918c1b22d51 Pragistyo <new.SOS.hope@outlook.com> 1507794310 +0700	commit: login endpoint ok
+2aec6019ea4806191151f32e57390918c1b22d51 3855fcd5022d1cebf450e202192cda6c2d209545 Pragistyo <new.SOS.hope@outlook.com> 1507797761 +0700	commit: CRUD blog backend OK
+3855fcd5022d1cebf450e202192cda6c2d209545 ec150b76522ce14a64b747bf6629ca637dc7c33d Pragistyo <new.SOS.hope@outlook.com> 1507798565 +0700	commit: BACKEND aman with juwita

@@ -7,14 +7,8 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var blog = require('./routes/blog')
 
 var app = express();
-
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/livecode-blog-phase2', (err) => {
-  err ? console.log('Can\'t connect to database') : console.log('MONGO Database connected')
-});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,7 +24,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-app.use('/blog',blog)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -49,6 +42,16 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+const users = require('./routes/users');
+// const blog = require('./routes/blog');
+
+app.use('/users', users)
+// app.use('/blog', blog)
+
+
+
 
 app.listen(3000,()=>{
   console.log('3000 is the ATTACK POINT of BLUE EYES WHITE DRAGON')
