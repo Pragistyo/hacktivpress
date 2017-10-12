@@ -6,12 +6,12 @@ This programs aim to use mongoDB as database, mongoose as ODM, and VUE jS 2.0 ++
 ## How to run
 
   1. clone the repo
-  2. get into directory server, and then :
+  2. get into *server* directory, and then :
 
     npm install
     nodemon app.js
 
-  3. get into client directory, and then :
+  3. get into *client* directory, and then :
 
     npm install
     npm run dev
@@ -23,12 +23,13 @@ This programs aim to use mongoDB as database, mongoose as ODM, and VUE jS 2.0 ++
 
   The API of the back end
 
-
+ For login-register feature
 | Route | HTTP | Desription|
 |-------|------|-----------|
 | `/signup/` | POST | Create member username, email, password |
 | `/signin/` | POST | Signin member to system |
 
+For blog CRUD feature
 | Route | HTTP | Description | Data Need |
 | ----- | ---- | ----------- | --------- |
 | `/blog` | GET | Get all articles | |
