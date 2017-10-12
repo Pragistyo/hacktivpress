@@ -10,6 +10,7 @@ class blogController {
 
   static all (req,res) {
     Blog.find().sort({date: 'descending'})
+    .populate({ path: 'author', select: 'username' })
     .then(result=>{
       res.send(result)
     })
@@ -35,6 +36,7 @@ class blogController {
 
   static single (req,res) {
     Blog.findOne({_id:req.params.id})
+    .populate({ path: 'author', select: 'username' })
     .then(result=>{
       res.send(result)
     })
@@ -45,6 +47,7 @@ class blogController {
 
   static category (req,res) {
     Blog.find({category:req.params.category})
+    .populate({ path: 'author', select: 'username' })
     .then(result=>{
       res.send(result)
     })
