@@ -9,7 +9,7 @@ class userController {
   }
 
   static all (req,res) {
-    res.send('denny')
+    // res.send('denny')
     Users.find({}).then(result=>{
       res.send(result)
     })
@@ -19,7 +19,11 @@ class userController {
   }
 
   static add (req,res) {
-    Users.create({})
+    Users.create({
+      username:req.body.username,
+      password:req.body.password,
+      email:req.body.email
+    })
     .then(result=>{
       res.send(result)
     })
@@ -39,7 +43,11 @@ class userController {
   }
 
   static update (req,res) {
-    Users.findOneAndUpdate({_id:req.params.id},{})
+    Users.findOneAndUpdate({_id:req.params.id},{
+      username:req.body.username,
+      password:req.body.password,
+      email:req.body.email
+    })
     .then(result=>{
       res.send(result)
     })
